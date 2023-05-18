@@ -89,8 +89,12 @@ export const Collection = ({ denom }: CollectionProps) => {
         </CardContent>
         <CardActions disableSpacing>
           <Tooltip title="View NFTs in Collection">
-            <IconButton
+          <IconButton
               aria-label="View Collection"
+              onClick={() => {
+                navigate(`/assets/${denom.id}`, { state: denom.id }); 
+                // Navigates to the page displaying the list of NFTs in this collection, owned by the connected cudos account.
+              }}
             >
               <OpenInFullRounded color="primary" />
             </IconButton>
