@@ -71,7 +71,8 @@ export const CollectionList = ({ getDenom, account }: CollectionListProps) => {
               variant="contained"
               color="primary"
               sx={{ margin: 5 }}
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 navigate(`/mint`);
               }}
             >
