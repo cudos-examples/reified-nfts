@@ -91,7 +91,8 @@ export const Collection = ({ denom }: CollectionProps) => {
           <Tooltip title="View NFTs in Collection">
           <IconButton
               aria-label="View Collection"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 navigate(`/assets/${denom.id}`, { state: denom.id }); 
                 // Navigates to the page displaying the list of NFTs in this collection, owned by the connected cudos account.
               }}
