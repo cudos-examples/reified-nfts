@@ -76,7 +76,8 @@ export const NftList = ({ getNft, account }: NftListProps) => {
               variant="contained"
               color="primary"
               sx={{ margin: 5 }}
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 navigate(`/mint`, { state: denomId });
               }}
             >
@@ -112,7 +113,8 @@ export const NftList = ({ getNft, account }: NftListProps) => {
             <Fab
               color="primary"
               aria-label="add"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 navigate(`/mint`, { state: denomId });
               }}
             >
