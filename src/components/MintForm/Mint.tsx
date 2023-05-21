@@ -96,13 +96,17 @@ export const Mint = ({ account, createDenom, mintNft }: MintProps) => {
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Box sx={{ flex: "1 1 auto" }} />
-                <Button onClick={handleReset} variant="contained">
-                  Create A New Collection
+                <Button onClick={(event) => {
+                  event.preventDefault();
+                  handleReset();
+                }} variant="contained">
+                    Create A New Collection
                 </Button>
                 <Box sx={{ flex: "1 1 auto" }} />
                 <Button
                   variant="contained"
-                  onClick={() => {
+                  onClick={(event) => {
+                    event.preventDefault();
                     navigate(`/collections`);
                   }}
                 >
