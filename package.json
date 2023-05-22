@@ -11,10 +11,12 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@fontsource/poppins": "^4.5.10",
     "@hookform/resolvers": "^3.0.1",
     "@keplr-wallet/types": "^0.11.53",
     "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.130",
     "@mui/material": "^5.11.16",
     "cudosjs": "^1.2.8",
     "notistack": "^3.0.1",
