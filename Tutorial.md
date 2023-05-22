@@ -1924,7 +1924,7 @@ interface NavProps {
 
 function Nav({ connect, account, disconnect, isConnected }: NavProps) {
   const navigate = useNavigate();
-  
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -1988,10 +1988,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={(event) => {
-                  event.preventDefault();
-                  handleOpenNavMenu;
-                }}
+                onClick={handleOpenNavMenu}
                 color="inherit"
               >
                 <MenuIcon />
@@ -2018,12 +2015,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                   <Typography textAlign="center">Assets</Typography>
                 </MenuItem>
 
-                <MenuItem
-                  onClick={(event) => {
-                    event.preventDefault();
-                    goToCollection();
-                  }}
-                >
+                <MenuItem>
                   <Typography textAlign="center">Mint</Typography>
                 </MenuItem>
               </Menu>
@@ -2071,9 +2063,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
             {isConnected ? (
               <>
                 <Button
-                  onClick={(event)=>{
-                    handleOpenUserMenu
-                  }}
+                  onClick={handleOpenUserMenu}
                   color="secondary"
                   variant="contained"
                 >
@@ -2099,8 +2089,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem
-                    onClick={(event) => {
-                      event.preventDefault();
+                    onClick={() => {
                       handleCloseUserMenu();
                       disconnect();
                     }}
@@ -2110,11 +2099,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                 </Menu>
               </>
             ) : (
-              <Button color="secondary" variant="contained" 
-                onClick={(event) => {
-                event.preventDefault();
-                connect();
-              }}>
+              <Button color="secondary" variant="contained" onClick={connect}>
                 Connect Wallet
               </Button>
             )}
@@ -2382,7 +2367,7 @@ We are now going to update the `Nav` component by adding navigation to the menu 
 ...
 function Nav({ connect, account, disconnect, isConnected }: NavProps) {
   const navigate = useNavigate();
-  
+  //add new lines from here
   const goToCollection = () => {
     if (account) {
       handleCloseNavMenu();
@@ -2401,12 +2386,13 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
     handleCloseNavMenu();
     navigate("/");
   };
+  //end of the new lines
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
 ...
 ```
 
-All of this use the useNavigate hook to handle navigation to the various components. We are now going to add it to the `onClick` event handler for the corresponding elements of the **`Nav`** bar elements that we created in **Step 07.**
+All of these use the useNavigate hook to handle navigation to the various components. We are now going to add it to the `onClick` event handler for the corresponding elements of the **`Nav`** bar elements that we created earlier.
 
 ```tsx
 function Nav({ connect, account, disconnect, isConnected }: NavProps) {
@@ -2414,10 +2400,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
   return (
     <AppBar
       ...
-                <MenuItem onClick={(event)=>{
-                  event.preventDefault();
-                  goToCollection();
-                }}>
+                <MenuItem onClick={goToCollection}>
                   <Typography textAlign="center">Assets</Typography>
                 </MenuItem>
 
@@ -2429,29 +2412,19 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                 >
                   <Typography textAlign="center">Mint</Typography>
                 </MenuItem>
-              </Menu>
-            </Box>
-          )}
-
           ...
           
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {isConnected && (
               <>
                 <Button
-                  onClick={(event)=>{
-                    event.preventDefault();
-                    goToCollection();
-                  }}
+                  onClick={goToCollection}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Assets
                 </Button>
                 <Button
-                  onClick={(event)=>{
-                    event.preventDefault();
-                    goToMintPage();
-                  }}
+                  onClick={goToMintPage}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Mint
@@ -2460,15 +2433,16 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
             )}
           </Box>
 		    ...
-                  <MenuItem
-                    onClick={(event) => {
-                      event.preventDefault();
-                      handleCloseUserMenu();
-                      disconnect();
-                      goToHomePage()
-                    }}
-                  >
-                    <Typography textAlign="center">Disconnect</Typography>
+          <MenuItem
+            onClick={() => {
+            handleCloseUserMenu();
+            disconnect();
+            goToHomePage();
+            }}
+          >
+            <Typography textAlign="center">Disconnect</Typography>
+          </MenuItem>
+        </Menu>
          ...
 ```
 

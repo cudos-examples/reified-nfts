@@ -22,7 +22,6 @@ interface NavProps {
 
 function Nav({ connect, account, disconnect, isConnected }: NavProps) {
   const navigate = useNavigate();
-  
   const goToCollection = () => {
     if (account) {
       handleCloseNavMenu();
@@ -104,10 +103,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={(event) => {
-                  event.preventDefault();
-                  handleOpenNavMenu;
-                }}
+                onClick={handleOpenNavMenu}
                 color="inherit"
               >
                 <MenuIcon />
@@ -130,10 +126,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <MenuItem onClick={(event)=>{
-                  event.preventDefault();
-                  goToCollection();
-                }}>
+                <MenuItem onClick={goToCollection}>
                   <Typography textAlign="center">Assets</Typography>
                 </MenuItem>
 
@@ -171,26 +164,20 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
           
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {isConnected && (
-            <>
+              <>
                 <Button
-                  onClick={(event)=>{
-                    event.preventDefault();
-                    goToCollection();
-                  }}
+                  onClick={goToCollection}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Assets
                 </Button>
                 <Button
-                  onClick={(event)=>{
-                    event.preventDefault();
-                    goToMintPage();
-                  }}
+                  onClick={goToMintPage}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Mint
                 </Button>
-            </>
+              </>
             )}
           </Box>
 
@@ -198,9 +185,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
             {isConnected ? (
               <>
                 <Button
-                  onClick={(event)=>{
-                    handleOpenUserMenu
-                  }}
+                  onClick={handleOpenUserMenu}
                   color="secondary"
                   variant="contained"
                 >
@@ -226,11 +211,10 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem
-                    onClick={(event) => {
-                      event.preventDefault();
+                    onClick={() => {
                       handleCloseUserMenu();
                       disconnect();
-                      goToHomePage()
+                      goToHomePage();
                     }}
                   >
                     <Typography textAlign="center">Disconnect</Typography>
@@ -238,11 +222,7 @@ function Nav({ connect, account, disconnect, isConnected }: NavProps) {
                 </Menu>
               </>
             ) : (
-              <Button color="secondary" variant="contained"
-                onClick={(event) => {
-                  event.preventDefault();
-                connect();
-              }}>
+              <Button color="secondary" variant="contained" onClick={connect}>
                 Connect Wallet
               </Button>
             )}
