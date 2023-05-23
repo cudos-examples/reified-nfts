@@ -1,18 +1,18 @@
 # Create an NFT Minting dApp with Cudos NFT Native Module
 
-NFT Minting is one of the most common applications of blockchain technology and the application of NFTs are almost limitless, so it is a good idea to look at how we can create NFTs on the Cudos blockchain. To do this, we will build a webapp that interacts with the Cudos-node’s NFT module using the Cudosjs.
+NFT Minting is one of the most common applications of blockchain technology and the application of NFTs are almost limitless, so it is a good idea to look at how we can create NFTs on the Cudos blockchain. To do this, we will build a webapp that interacts with the Cudos-node’s NFT module using the Cudosjs library.
 
-In this tutorial, you will learn how to use the CudosJs library to create a web app that integrates with the Cudos network and the knowledge you gain here can be applied to build different types of decentralised applications on Cudos. 
+In this tutorial, you will learn how to use the CudosJs library to create a web app that integrates with the Cudos network and the knowledge you gain here can be applied to build different types of decentralised applications that interact with the Cudos network. 
 
 What you will learn from this tutorial are:
 
 - Features of the Cudos-Node’s NFT module
 - How to set up a React TS app with Keplr and [Cudos-js](https://www.npmjs.com/package/cudosjs)
-- how to setup and interact with keplr extension to sign transactions
+- How to setup and interact with keplr extension to sign transactions
 - Querying and executing transactions on Cudos testnet using cudosjs and Keplr
 - Possible ways to extend the project
 
-This GitHub repository contains the finished project…
+This GitHub repository contains the finished project…[link]
 
 The tooling used are:
 
@@ -54,9 +54,14 @@ The NFT module has the following features:
 
 You can learn more about the NFT module by looking [at the code on Github](https://github.com/CudoVentures/cudos-node/tree/cudos-master/x/nft). 
 
+The project repository has 7 branches, the main branch which has the finished project, and 6 others labelled Step-01 to Step-06. The multi-step-multi-branch approach is to provide you with a reference point that you can compare your code as you code along each step of the tutorial. Happy coding 😊
+
+
 ## Step 01 Set up the react project and install Cudosjs
 
 We use [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to scaffold our React Typescript project, Vite requires Node.js 14.18 or higher.  
+
+If you want to skip the project scaffolding, you can clone the repo, and create a branch off Step-02, this way you have the project template ready and you can skip Steps 01 and 02. Just don't forget to run `npm install` .
 
 Go to the directory you want your project located in and run the command `npm create vite@latest.`
 

@@ -10,6 +10,8 @@ This is an example app that shows how to build frontend that interacts with the 
 
 Built with React, Typescript, Cudosjs.
 
+This repository has an in-depth [link  to the tutorial] that you can follow. You will notice that there are 7 branches, the main branch and 6 others, labelled Step-01 up until Step-06, this is to provide you with a reference point that you can compare your code as you code along each step of the tutorial.
+
 ## Usage
 
 ---
